@@ -15,14 +15,24 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
-
-/* .news-container .card {
-  height: fit-content;
-} */
-
 .card-title:hover {
   text-decoration: underline;
 }
+
+.news-category-bar {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.news-category-bar .news-category-item:hover {
+  cursor: pointer;
+}
+.news-category-bar .selected-category {
+  color: rgba(0, 120, 255, 1);
+}
+
 @media (min-width: 1900px) {
   .news-container {
     grid-template-columns: repeat(4, 1fr);

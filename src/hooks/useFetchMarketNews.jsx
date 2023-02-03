@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import finnHub from '../apis/finnHub';
 
-const useFetchMarketNews = () => {
+const useFetchMarketNews = (newsCategory) => {
   const [marketNewsData, setMarketNewsData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const useFetchMarketNews = () => {
       finnHub
         .get('/news', {
           params: {
-            category: 'general',
+            category: newsCategory,
           },
         })
         .then((res) => {
@@ -24,7 +24,7 @@ const useFetchMarketNews = () => {
       setError(err);
       setLoading(false);
     }
-  }, []);
+  }, [newsCategory]);
 
   return { marketNewsData, loading, error };
 };
