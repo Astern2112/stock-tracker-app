@@ -26,7 +26,7 @@ const StockList = () => {
   };
 
   return (
-    <div>
+    <div className="watchList-container mb-5">
       {error && <Error />}
       {loading && <Loading />}
       <table className="table hover mt-5">
