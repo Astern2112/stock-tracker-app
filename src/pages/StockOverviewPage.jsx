@@ -1,11 +1,11 @@
 import React from 'react';
-import QuoteSearch from '../Components/QuoteSearch';
+import SymbolSearch from '../Components/SymbolSearch';
 import StockList from '../Components/StockList';
 
 const StockOverview = () => {
   return (
     <div>
-      <QuoteSearch />
+      <SymbolSearch />
       <StockList />
     </div>
   );

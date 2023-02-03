@@ -1,43 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { WatchListContext } from '../context/watchListContext';
-import finnHub from '../apis/finnHub';
+import useFetchSymbolLookup from '../hooks/useFetchSymbolLookup';
 
-const QuoteSearch = () => {
+const SymbolSearch = () => {
   const [search, setSearch] = useState('');
-  const [resultStockList, setResultStockList] = useState([]);
   const { addStock } = useContext(WatchListContext);
-
-  const filterStockList = (list) => {
-    return list.filter((stock) => {
-      return !stock.symbol.includes('.') && !stock.symbol.includes(':');
-    });
-  };
-
-  useEffect(() => {
-    let isMounted = true;
-    const fetchData = async () => {
-      try {
-        const resp = await finnHub.get('/search', {
-          params: {
-            q: search,
-          },
-        });
-
-        if (isMounted) {
-          const filteredList = filterStockList(resp.data.result);
-          setResultStockList(filteredList);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    if (search.length > 0) {
-      fetchData();
-    } else {
-      setResultStockList([]);
-    }
-    return () => (isMounted = false);
-  }, [search]);
+  const {
+    data: resultStockList,
+    loading,
+    error,
+  } = useFetchSymbolLookup(search);
 
   const renderDropdown = () => {
     const dropDownClass = search ? 'show' : null;
@@ -85,10 +57,10 @@ const QuoteSearch = () => {
           onChange={(e) => setSearch(e.target.value)}
         ></input>
         <label htmlFor="search">Search Stock</label>
-        {renderDropdown()}
+        {!loading && !error && renderDropdown()}
       </div>
     </div>
   );
 };
 
-export default QuoteSearch;
+export default SymbolSearch;
