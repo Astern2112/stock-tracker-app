@@ -4,19 +4,19 @@
 
 Inprogress
 
-### Description
+## Description
 
 An application used to track stock data and market news form the finnHubAPI
 
-### Tools
+## Tools
 
 HTML, CSS, Javascript, React, Axios, ApexCharts, ReactRouter, Bootstrap
 
-### API
+## API
 
 Finnhub
 
-### Installation and Setup Instructions
+## Installation and Setup Instructions
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
