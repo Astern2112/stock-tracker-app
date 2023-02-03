@@ -14,7 +14,7 @@ HTML, CSS, Javascript, React, Axios, ApexCharts, ReactRouter, Bootstrap
 
 ## API
 
-Finnhub
+[Finnhub](https://finnhub.io/)
 
 ## Installation and Setup Instructions
 
