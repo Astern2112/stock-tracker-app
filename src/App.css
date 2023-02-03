@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+.delete-button {
+  visibility: hidden;
+  display: inline-block;
+}
+.table-row:hover {
+  background-color: #f3f3f3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.table-row:hover .delete-button {
+  visibility: visible;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* .news-container .card {
+  height: fit-content;
+} */
+
+.card-title:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1900px) {
+  .news-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1200px) {
+  .news-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 800px) {
+  .news-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
