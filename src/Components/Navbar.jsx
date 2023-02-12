@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Navbar
+          Stock App
         </Link>
 
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -16,11 +16,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/exchange">
-                Exchange
-              </Link>
-            </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/news">
                 News
