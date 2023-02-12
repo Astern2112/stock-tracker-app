@@ -35,7 +35,7 @@ const useFetchStockCandle = (symbol) => {
       }
 
       try {
-        const responses = await Promise.all([
+        let responses = await Promise.all([
           finnHub.get('/stock/candle', {
             params: {
               symbol: symbol,
@@ -69,12 +69,18 @@ const useFetchStockCandle = (symbol) => {
             },
           }),
         ]);
+        if (responses[0].data.s !== 'no_data') {
+          localStorage.setItem(symbol + 'Candle', responses);
+        } else {
+          responses = localStorage.getItem(symbol + 'Candle');
+        }
         setData({
           day: formatData(responses[0]),
           week: formatData(responses[1]),
           year: formatData(responses[2]),
           fiveYear: formatData(responses[3]),
         });
+
         setLoading(false);
       } catch (err) {
         setError(err);

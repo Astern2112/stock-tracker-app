@@ -12,7 +12,12 @@ const NewsCard = ({ data }) => {
   return (
     <div className="card border-light">
       <a href={data.url} target="_blank" rel="noopener noreferrer">
-        <img src={data.image} className="card-img-top" alt={data.headline} />
+        <img
+          src={data.image}
+          className="card-img-top"
+          alt={data.headline}
+          lazy
+        />
       </a>
       <div className="card-body">
         <p className="">
